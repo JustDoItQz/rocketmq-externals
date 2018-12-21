@@ -25,4 +25,4 @@ RUN mv ${ROCKETMQ_HOME}/bin/runbroker-customize.sh ${ROCKETMQ_HOME}/bin/runbroke
 
 CMD cd ${ROCKETMQ_HOME}/bin \
  && export JAVA_OPT=" -Duser.home=/opt" \
- && sh mqbroker -n namesrv:9876
+ && sh mqbroker -n namesrv:9876  -c /opt/conf/broker.properties

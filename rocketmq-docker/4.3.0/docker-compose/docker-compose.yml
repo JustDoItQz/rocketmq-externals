@@ -25,5 +25,15 @@ services:
     volumes:
       - ./data/broker/logs:/opt/logs
       - ./data/broker/store:/opt/store
+      - ./data/broker/conf:/opt/conf
     depends_on:
       - namesrv
+  rocketmq-console-ng:
+    container_name: rmqconsole
+    image: styletang/rocketmq-console-ng:latest
+    depends_on:
+        - broker
+    ports:
+        - 8180:8080
+    environment:
+        NAMESRV_ADDR: "namesrv:9876"
